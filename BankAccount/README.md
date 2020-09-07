@@ -4,10 +4,10 @@
 
 Runs in IRB/Pry.
 
-**To begin**
+**To begin:**
 At project root execute `bundle install`
 
-**To run tests**
+**To run tests:**
 Execute command `rspec`
 
 **Acceptance criteria**
@@ -16,7 +16,7 @@ Execute command `rspec`
 - And a deposit of 2000 on 13-01-2012
 - And a withdrawal of 500 on 14-01-2012
 - When she prints her bank statement
-- Then she would see<br/>
+Then she would see<br/>
 ```
 date || credit || debit || balance
  
