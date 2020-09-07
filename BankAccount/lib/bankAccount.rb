@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-
 require_relative './transaction'
+require_relative './printer'
 
 # Central "orchestrator" for the bank account
 class BankAccount
@@ -16,7 +16,7 @@ class BankAccount
 
   def self.transaction(transaction_class = Transaction, type, amount)
     new_transaction = (type.match(/deposit/i) ? transaction_class.deposit(amount, @balance) : transaction_class.withdraw(amount, @balance))
-    @balance += new_transaction.value
+    increase_balance(new_transaction.value)
     add_to_statement(new_transaction)
   end
 
@@ -25,15 +25,18 @@ class BankAccount
     increment_transaction_id
   end
 
-  def self.print_statement
-    puts 'DATE || CREDIT || DEBIT || BALANCE'
-    @statements.sort.reverse.to_h.map do |_, transaction|
-      puts "#{transaction[0].date} || #{transaction[0].credit} || #{transaction[0].debit} ||
-      #{transaction[0].balance_after_transaction}"
-    end
+  def self.print_statement(printer_class = Printer)
+    printer_class.print(@statements)
   end
+
+  private
 
   def self.increment_transaction_id
     @transaction_id += 1
   end
+
+  def self.increase_balance(value)
+    @balance += value
+  end
+
 end
