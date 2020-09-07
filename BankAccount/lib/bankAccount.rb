@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './transaction'
 
 # Central "orchestrator" for the bank account
@@ -8,8 +10,8 @@ class BankAccount
   @balance = 0
   @statements = Hash.new { |key, value| key[value] = [] }
 
-  def self.balance
-    @balance
+  class << self
+    attr_reader :balance
   end
 
   def self.transaction(transaction_class = Transaction, type, amount)
@@ -25,15 +27,13 @@ class BankAccount
 
   def self.print_statement
     puts 'DATE || CREDIT || DEBIT || BALANCE'
-    @statements.sort.reverse.to_h.map { |id, transaction|
-      puts "#{transaction[0].date} || #{transaction[0].credit} || #{transaction[0].debit} || #{transaction[0].balance_after_transaction}"
-    }
+    @statements.sort.reverse.to_h.map do |_, transaction|
+      puts "#{transaction[0].date} || #{transaction[0].credit} || #{transaction[0].debit} ||
+      #{transaction[0].balance_after_transaction}"
+    end
   end
-
-  private
 
   def self.increment_transaction_id
     @transaction_id += 1
   end
-
 end
