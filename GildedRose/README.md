@@ -5,7 +5,6 @@ Required comprehensive testing suite design and implementation, mutation testing
 
 <h5>Runs in IRB/Pry. <br/> Require the file in the shell environment.</h5>
 
-
 **To begin:**
 - At project root execute `bundle install`
 - Shell environments that can be used include 'irb'
@@ -22,6 +21,25 @@ Once in the shell
 
 **To run tests:**
 - Execute command `rspec` at project root
+
+**Test suite justification:**<br/>
+I wanted to separate the legacy code test suite from any future additional tests.  In essence, 
+it would act as the "single source of all truth" for the original legacy code and should therefore remain untouched as to ensure the original functions of the application remain unaltered.
+This is why they are all in one suite. 
+
+When designing the tests, I realised that while I was achieving full coverage, certain mutations to the code did not fail tests and therefore not all conditional branches were being tested.
+This meant by test suite was not comprehensive and changes to code with the current test suite may introduce unintended bugs.
+Thus in order to have true test coverage for all application logic, I opted to test for every conditional in the legacy code.
+This was the general jist of my test design approach: 
+```ruby
+qualities.each do |quality|
+  sell_ins.each do |sell_in|
+    items.each do |item|
+      tests_to_run = item.new(quality, sell_in)
+    end
+  end
+end
+```
 
 **Acceptance criteria**
 
@@ -41,3 +59,5 @@ Once in the shell
 
 Further information of requirements can be found at: https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/master/GildedRoseRequirements.txt
 
+
+Detailed commit log is found at alternative repo: https://github.com/dwram/GildedRose-Refactoring-Kata
