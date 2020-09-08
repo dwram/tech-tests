@@ -41,6 +41,8 @@ qualities.each do |quality|
 end
 ```
 
+Qualities and sell_in numerics were determined by the legacy code conditionals.
+
 **Acceptance criteria**
 
 - All items have a SellIn value which denotes the number of days we have to sell the item
