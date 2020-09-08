@@ -1,6 +1,6 @@
 # Handles the transactions of bank account
 class Transaction
-  attr_reader :date, :credit, :debit, :value, :balance_after_transaction, :balance_before_transaction
+  attr_reader :date, :credit, :debit, :value
   DATE_FORMAT = Time.now.strftime('%d/%m/%Y')
 
   def initialize(type, credit: nil, debit: nil, value:, balance:)
@@ -8,8 +8,6 @@ class Transaction
     @credit = credit
     @debit = debit
     @value = value
-    @balance_before_transaction = balance
-    @balance_after_transaction = balance + value
   end
 
   def self.withdraw(amount, balance)

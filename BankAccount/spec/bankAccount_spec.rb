@@ -8,20 +8,22 @@ describe BankAccount do
   end
 
   it 'can deposit an amount (100)' do
-    account.transaction('deposit', 100)
+    account.make_transaction('deposit', 100)
     expect(account.balance).to eq 100
   end
 
   it 'can withdraw an amount (100)' do
-    account.transaction('withdraw',200)
+    account.make_transaction('withdraw', 200)
     expect(account.balance).to eq -100
   end
 
-  it 'has statements storing transactions for deposit/withdraw' do
-    expect(account.print_statement.size).to eq 2
+  it 'can deposit again 400' do
+    account.make_transaction('deposit', 400)
+    expect(account.balance).to eq 300
   end
 
-  it 'newest transactions are printed first (highest IDs)' do
+  it 'has statements storing transactions for deposit/withdraw' do
+    expect(account.print_statement.size).to eq 3
   end
 
 end

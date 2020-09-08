@@ -14,7 +14,7 @@ class BankAccount
     attr_reader :balance
   end
 
-  def self.transaction(transaction_class = Transaction, type, amount)
+  def self.make_transaction(transaction_class = Transaction, type, amount)
     new_transaction = (type.match(/deposit/i) ? transaction_class.deposit(amount, @balance) : transaction_class.withdraw(amount, @balance))
     increase_balance(new_transaction.value)
     add_to_statement(new_transaction)
@@ -26,7 +26,7 @@ class BankAccount
   end
 
   def self.print_statement(printer_class = Printer)
-    printer_class.print(@statements)
+    printer_class.print(@statements, @balance)
   end
 
   private
