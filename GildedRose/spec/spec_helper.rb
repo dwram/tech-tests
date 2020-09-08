@@ -1,5 +1,3 @@
-ENV['RACK_ENV'] = 'test'
-
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -11,11 +9,13 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                ])
 SimpleCov.start
 
-require_relative '../lib/gilded-rose'
-
+require_relative '../lib/item-interface'
+require_relative '../lib/items'
+require_relative './helpers'
 
 
 RSpec.configure do |config|
+
 
 
 end

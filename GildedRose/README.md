@@ -1,47 +1,43 @@
-<h3>Bank Account application</h3> 
+<h3>Gilded Rose legacy code refactoring and feature upgrade</h3> 
 
-<img src="https://i.gyazo.com/afe9524b5281e8c7234243f4f9bc3c59.png" alt="Bank Account Image"/>
+<img src="https://i.gyazo.com/b1c42413723e4c0d429aa02ef5a207e9.png" alt="Gilded Rose"/>
+Required comprehensive testing suite design and implementation, mutation testing and use of polymorphism.
 
 <h5>Runs in IRB/Pry. <br/> Require the file in the shell environment.</h5>
 
 
 **To begin:**
 - At project root execute `bundle install`
-- At tech_test root `SHELL -r './BankAccount/lib/bankAccount.rb'`
-- At project root `SHELL -r '/lib/bankAccount.rb'`
+- Shell environments that can be used include 'irb'
+- At tech_test root `irb -I ./GildedRose/lib ` to load the lib folder to Ruby's load path
+- At project root `irb -I ./lib`
+
+Once in the shell
+- `require 'item-interface'` to load the item superclass
+- `require 'items'` to load in item subclasses and GildedRose
+
+- Use `instance = GildedRose.new([ITEM(S)]` syntax and `instance.update_quality` to use the program!
+- Items take two parameters, `ItemName.new(SELL_IN, QUALITY)`.
+<br/> NB: Pass the item(s) within an array to the GildedRose constructor.
 
 **To run tests:**
-- Execute command `rspec`
+- Execute command `rspec` at project root
 
 **Acceptance criteria**
 
-- Given a client makes a deposit of 1000 on 10-01-2012
-- And a deposit of 2000 on 13-01-2012
-- And a withdrawal of 500 on 14-01-2012
-- When she prints her bank statement
-Then she would see<br/>
-```
-date || credit || debit || balance
- 
- 14/01/2012 || || 500.00 || 2500.00
- 
- 13/01/2012 || 2000.00 || || 3000.00
- 
- 10/01/2012 || 1000.00 || || 1000.00
- ```
+- All items have a SellIn value which denotes the number of days we have to sell the item
+- All items have a Quality value which denotes how valuable the item is
+- At the end of each day our system lowers both values for every item
+- Once the sell by date has passed, Quality degrades twice as fast
+- The Quality of an item is never negative
+- "Aged Brie" actually increases in Quality the older it gets
+- The Quality of an item is never more than 50
+- "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+- "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+- Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
+- Quality drops to 0 after the concert
+- We have recently signed a supplier of conjured items. This requires an update to our system:
+	- "Conjured" items degrade in Quality twice as fast as normal items
 
-My approach and methodology (copied and pasted)
-
-```CLI operable
- Transaction types: Deposit/Withdrawl
- Each transaction will have a date, amount and balance (showing current balance in bank account)
- (Non-persisted) Store of information in RAM
- 
- Method to print her bank statement with table syntax DATE || CREDIT || DEBIT || BALANCE
- Credit = Deposit (Bank takes from User)
- Debit = Withdrawal (User takes from bank)
-```
- 
-For more information: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
-
+Further information of requirements can be found at: https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/master/GildedRoseRequirements.txt
 
