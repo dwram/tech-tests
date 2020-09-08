@@ -3,7 +3,7 @@ class Transaction
   attr_reader :date, :credit, :debit, :value
   DATE_FORMAT = Time.now.strftime('%d/%m/%Y')
 
-  def initialize(type, credit: nil, debit: nil, value:, balance:)
+  def initialize(credit: nil, debit: nil, value:)
     @date = DATE_FORMAT
     @credit = credit
     @debit = debit
@@ -11,11 +11,11 @@ class Transaction
   end
 
   def self.withdraw(amount, balance)
-    Transaction.new('withdraw', credit: nil, debit: amount, value: -amount, balance: balance)
+    Transaction.new(credit: nil, debit: amount, value: -amount)
   end
 
   def self.deposit(amount, balance)
-    Transaction.new('deposit', credit: amount, debit: nil, value: amount, balance: balance)
+    Transaction.new(credit: amount, debit: nil, value: amount)
   end
 
 end

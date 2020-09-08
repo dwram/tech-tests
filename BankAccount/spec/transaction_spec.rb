@@ -2,7 +2,8 @@ require_relative './spec_helper'
 
 describe Transaction do
 
-  let(:make_transaction) { Transaction }
+  let(:transaction) { Transaction }
+
   it 'withdraw returns a hash with corresponding values' do
     withdrawal = transaction.withdraw(500, balance = 0)
     expect(withdrawal.date).to eq(Transaction::DATE_FORMAT)
