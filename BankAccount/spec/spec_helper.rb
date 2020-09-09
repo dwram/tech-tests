@@ -11,6 +11,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                ])
 SimpleCov.start
 
+require_relative '../lib/transaction'
+require_relative '../lib/printer'
 require_relative '../lib/bankAccount'
 
 

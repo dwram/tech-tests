@@ -4,18 +4,17 @@ require_relative './printer'
 
 # Central "orchestrator" for the bank account
 class BankAccount
-  attr_reader :balance, :statements, :transaction_id
 
   @transaction_id = 1
   @balance = 0
   @statements = Hash.new { |key, value| key[value] = [] }
 
   class << self
-    attr_reader :balance
+    attr_reader :balance, :statements, :transaction_id
   end
 
   def self.make_transaction(transaction_class = Transaction, type, amount)
-    new_transaction = (type.match(/deposit/i) ? transaction_class.deposit(amount, @balance) : transaction_class.withdraw(amount, @balance))
+    new_transaction = (type.match(/deposit/i) ? transaction_class.deposit(amount) : transaction_class.withdraw(amount))
     increase_balance(new_transaction.value)
     add_to_statement(new_transaction)
   end

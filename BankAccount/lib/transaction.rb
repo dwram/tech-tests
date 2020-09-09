@@ -10,11 +10,11 @@ class Transaction
     @value = value
   end
 
-  def self.withdraw(amount, balance)
+  def self.withdraw(amount)
     Transaction.new(credit: nil, debit: amount, value: -amount)
   end
 
-  def self.deposit(amount, balance)
+  def self.deposit(amount)
     Transaction.new(credit: amount, debit: nil, value: amount)
   end
 
