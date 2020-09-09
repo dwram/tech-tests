@@ -29,9 +29,9 @@ describe BankAccount do
       BankAccount.make_transaction(withdraw_one, 'withdraw', first_withdrawal)
 
       statement = BankAccount.print_statement
-      expect(statement.first).to include(withdraw_transaction.date)
-      expect(statement[1]).to include(second_transaction_time)
-      expect(statement.last).to include(first_transaction_time)
+      expect(statement.first).to eq('14-01-2012 || 500.00 ||  || 2500.00')
+      expect(statement[1]).to eq('13-01-2012 || 2000.00 ||  || 3000.00')
+      expect(statement.last).to eq('10-01-2012 || 1000.00 ||  || 1000.00')
     end
 
   end
