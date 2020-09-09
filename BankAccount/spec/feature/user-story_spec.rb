@@ -28,7 +28,7 @@ describe BankAccount do
       expect(BankAccount.print_statement.first).to include(second_transaction_time)
 
       time = double(Time, now: third_transaction_time)
-      withdraw_transaction = instance_double(Transaction, date: time.now, credit: 500, debit: nil, value: -500)
+      withdraw_transaction = instance_double(Transaction, date: time.now, credit: first_withdrawal, debit: nil, value: -first_withdrawal)
       withdraw_one = class_double(Transaction, withdraw: withdraw_transaction)
       BankAccount.make_transaction(withdraw_one, 'withdraw', first_withdrawal)
       expect(BankAccount.print_statement.first).to include(withdraw_transaction.date)

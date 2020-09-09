@@ -1,6 +1,6 @@
 <h3>Bank Account application</h3> 
 
-<img src="https://i.gyazo.com/afe9524b5281e8c7234243f4f9bc3c59.png" alt="Bank Account Image"/>
+<img src="https://i.gyazo.com/99825ea9ef97363bbe820b6977210ec6.png" alt="Bank Account Image"/>
 
 <h5>Runs in IRB/Pry. <br/> Require the file in the shell environment.</h5>
 
@@ -8,7 +8,7 @@
 **To begin:**
 - At project root execute `bundle install`
 - At tech_test root `SHELL -r './BankAccount/lib/bankAccount.rb'`
-- At project root `SHELL -r '/lib/bankAccount.rb'`
+- At project root `SHELL -r '/lib/bankAccount.rb'` or `'irb -I './lib' `
 
 **To run tests:**
 - Execute command `rspec`
