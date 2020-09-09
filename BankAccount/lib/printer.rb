@@ -15,7 +15,7 @@ class Printer
     credit = '%.2f' % transaction[0].credit if transaction[0].credit
     debit = '%.2f' % transaction[0].debit if transaction[0].debit
     @current_balance += -transaction[0].value
-    puts "#{transaction[0].date} || #{credit} || #{debit} || #{'%.2f' % (@current_balance + transaction[0].value) } "
+    p "#{transaction[0].date} || #{credit} || #{debit} || #{'%.2f' % (@current_balance + transaction[0].value) } "
   end
 
 end
