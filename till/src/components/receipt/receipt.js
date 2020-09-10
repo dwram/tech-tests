@@ -9,7 +9,7 @@ class Receipt extends React.Component {
         let discountedTotal = 0
         const eligibleForDiscount = submittedCost > discountQualify
         return (
-            <div data-testid="receipt"><h3>Current receipt</h3>
+            <div data-testid="receipt" style={{marginBottom: '100px'}}><h3>Current receipt</h3>
                 <div>{
                     products.map((product, index) => {
                         if (quantities[index] > 0) {

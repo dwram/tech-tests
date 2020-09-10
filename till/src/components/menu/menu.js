@@ -50,7 +50,6 @@ class Menu extends React.Component {
                                         <li>
                                             <div
                                                 key={index}> {(this.state.quantities[index] > 0) ? this.state.quantities[index] + ' x ' : ''} {key} : £{items[key]} {this.state.quantities[index] > 0 ? '-----------> £' + (this.state.quantities[index] * items[key]).toFixed(2) : ''}</div>
-
                                             <input
                                                 type='text'
                                                 onChange={e => this.handleChange(e, index)}
