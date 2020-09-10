@@ -5,12 +5,12 @@ class BackStagePass < Item
 
   def compute_update_quality
     if @quality < 50
-      increase_quality
-      increase_quality if @sell_in < 6 && @quality < 50
-      increase_quality if @sell_in < 11 && @quality < 50
+      @quality += 1
+      @quality += 1 if @sell_in < 6 && @quality < 50
+      @quality += 1 if @sell_in < 11 && @quality < 50
     end
-    reduce_sell_in
-    reset_quality if @sell_in.negative?
+    @sell_in -= 1
+    @quality = 0 if @sell_in.negative?
   end
 
 end

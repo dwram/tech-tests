@@ -4,8 +4,8 @@ class AgedBrie < Item
   end
 
   def compute_update_quality
-    reduce_sell_in
-    increase_quality if @quality < 50
-    increase_quality if @sell_in.negative? && @quality < 50
+    @sell_in -= 1
+    @quality += 1 if @quality < 50
+    @quality += 1 if @sell_in.negative? && @quality < 50
   end
 end

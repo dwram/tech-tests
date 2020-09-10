@@ -18,29 +18,13 @@ class Item
   end
 
   def compute_update_quality
-    reduce_sell_in
-    reduce_quality if @quality.positive?
-    reduce_quality if @quality.positive? && @sell_in.negative?
+    @sell_in -= 1
+    @quality -= 1 if @quality.positive?
+    @quality -= 1 if @quality.positive? && @sell_in.negative?
   end
 
   def to_s
     "#{@name}, #{@sell_in}, #{@quality}"
-  end
-
-  def reduce_sell_in(amount = 1)
-    @sell_in -= amount
-  end
-
-  def reduce_quality(amount = 1)
-    @quality -= amount
-  end
-
-  def reset_quality
-    @quality = 0
-  end
-
-  def increase_quality(amount = 1)
-    @quality += amount
   end
 
 end
