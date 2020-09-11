@@ -25,14 +25,16 @@ Once in the shell
 - Execute command `rspec` at project root
 
 **Test suite justification:**<br/>
-I wanted to separate the legacy code test suite from any future additional tests.  In essence, 
-it would act as the "single source of all truth" for the original legacy code and should therefore remain untouched as to ensure the original functions of the application remain unaltered.
-This is why they are all in one suite. 
+In order to create a "single source of all truth" in reference to the original legacy code, therefore enabling separation of original functions (and their tests) from future functions (and _their_ tests),
+original legacy code tests were placed in a singular test suite. 
 
-When designing the tests, I realised that while I was achieving full coverage, certain mutations to the code did not fail tests and therefore not all conditional branches were being tested.
-This meant by test suite was not comprehensive and changes to code with the current test suite may introduce unintended bugs.
-Thus in order to have true test coverage for all application logic, I opted to test for every conditional in the legacy code.
-This was the general jist of my test design approach: 
+When creating the legacy code test suite, while full coverage was observed, mutations to portions of code did consequently fail currently existing tests. 
+This meant that conditional branches existed, that were not being tested.
+Resultantly, the test suite was not comprehensive and changes to code with the current test suite may not catch bugs or unintended side-effects.
+Thus in order to have true test coverage for all application logic, I opted to test every possible conditional in the legacy code.
+
+This was the general ideology of my testing approach: 
+
 ```ruby
 qualities.each do |quality|
   sell_ins.each do |sell_in|
@@ -43,7 +45,7 @@ qualities.each do |quality|
 end
 ```
 
-Qualities and sell_in numerics were determined by the legacy code conditionals.
+Qualities and sell_in numerics were determined by legacy code conditionals.
 
 **Acceptance criteria**
 
