@@ -57,7 +57,7 @@ class Menu extends React.Component {
                                         </li>
                                     )
                                 })
-                            }
+                            }g
                         </div>
                         <button onClick={this.onSubmit} style={{padding: '2px 15px', visibility: 'visible'}}>
                             Submit

@@ -21,7 +21,7 @@ class Receipt extends React.Component {
                 </div>
                 <div>
                     <div>Costs before discount and tax: {submittedCost}</div>
-                    <div>Disc: {eligibleForDiscount ? discountedTotal : 'Not eligible'}</div>
+                    <div>Disc: {eligibleForDiscount ? discountedTotal * 100 + '%' : 'Not eligible'}</div>
                     <div>TAX: {calculatedTax}</div>
                     <div>Final cost: £{eligibleForDiscount ? (submittedCost - ((submittedCost * tax) - discountedTotal)).toFixed(2) : (submittedCost - (submittedCost * tax)).toFixed(2) }</div>
                 </div>
