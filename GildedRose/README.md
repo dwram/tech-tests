@@ -1,7 +1,9 @@
 <h3>Gilded Rose legacy code refactoring and feature upgrade</h3> 
 
 <img src="https://i.gyazo.com/b1c42413723e4c0d429aa02ef5a207e9.png" alt="Gilded Rose"/>
-Required comprehensive testing suite design and implementation, mutation testing and use of polymorphism.
+
+nb: You may also use `ItemFactory.create_item(string ITEMNAME, int SELLIN, int QUALITY)` to create an item.
+- This tech test required comprehensive testing suite design and implementation, mutation testing and use of polymorphism.
 
 <h5>Runs in IRB/Pry. <br/> Require the file in the shell environment.</h5>
 
