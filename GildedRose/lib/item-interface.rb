@@ -7,16 +7,6 @@ class Item
     @quality = quality
   end
 
-  def self.create_item(name, sell_in, quality)
-    case name
-    when 'Aged Brie' then AgedBrie.new(sell_in, quality)
-    when 'Backstage passes to a TAFKAL80ETC concert' then BackStagePass.new(sell_in, quality)
-    when 'Sulfuras, Hand of Ragnaros' then Sulfuras.new(sell_in, quality)
-    when 'Conjured Item' then ConjuredItem.new(sell_in, quality)
-    else; Item.new(name, sell_in, quality)
-    end
-  end
-
   def compute_update_quality
     @sell_in -= 1
     @quality -= 1 if @quality.positive?
