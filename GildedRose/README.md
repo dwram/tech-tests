@@ -28,7 +28,7 @@ Once in the shell
 In order to create a "single source of all truth" in reference to the original legacy code, therefore enabling separation of original functions (and their tests) from future functions (and _their_ tests),
 original legacy code tests were placed in a singular test suite. 
 
-When creating the legacy code test suite, while full coverage was observed, mutations to portions of code did **NOT** consequently fail currently existing tests. 
+When creating the legacy code test suite, while full coverage was observed, mutations to portions of code did **NOT** consequently fail existing tests. 
 This meant that conditional branches existed, that were not being tested.
 Resultantly, the test suite was not comprehensive and changes to code with the current test suite may not catch bugs or unintended side-effects.
 Thus in order to have true test coverage for all application logic, I opted to test every possible conditional in the legacy code.
