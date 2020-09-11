@@ -1,5 +1,7 @@
 <h3>Database Server</h3> 
 
+![Gif](demo/set-and-get.gif)
+
 <h5>Runs in browser</h5>
 
 **To begin:**
